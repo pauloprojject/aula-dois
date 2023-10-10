@@ -156,7 +156,10 @@ public class ProdutoService {
 		Optional<Produto> testeMax = list.stream().max((p1, p2) -> p1.getPreco().compareTo(p2.getPreco()));
 		System.out.println(testeMin);
 		System.out.println(testeMax);
-		
+
+		Integer reduce = list.stream().mapToInt(p -> p.getPreco().intValue()).reduce(0, (a,b) -> a+b);
+		System.out.println(reduce);
+
 		return list;
 	}
 }
